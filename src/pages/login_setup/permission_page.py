@@ -19,7 +19,7 @@ class PermissionPage:
     def request_permission(self, e):
         o = self.permission_handler.request_permission(e.control.data)
         
-        self.page.add(Text(f"Requested {e.control.data.name}: {o}"))
+        self.page.add(Text(f"Requested to {e.control.data.name}: {o}"))
     # check storage permission first get permission > create folder and make database
     def storage_click(self, e):
         # print("storage_click")
