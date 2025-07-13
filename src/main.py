@@ -1,18 +1,14 @@
-from flet import Page, app
-from controllers.page_controler import route_change
-
-import warnings
-warnings.filterwarnings(action='ignore', category=DeprecationWarning)
+from flet import Page, run
+from controllers.page_controller import PageController
 
 def main(page: Page):
-    page.title = "InChat"
-    # page.window.width = 300
+    pc = PageController(page)
+
+    def route_change(e):
+        route_name = e.route.strip("/") or "first"
+        pc.load_page(route_name)
+
     page.on_route_change = route_change
-    # Start on LoginPage or another default page
-    # page.go("/login_page")
-    page.go("/permission_page")
+    page.go(page.route)
 
-app(target=main)
-
-
-app(main)
+run(main)
