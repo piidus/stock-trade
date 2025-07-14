@@ -1,5 +1,4 @@
 import flet as ft
-from datetime import datetime
 
 class FirstPage:
     def __init__(self, page: ft.Page, pc):
@@ -8,14 +7,19 @@ class FirstPage:
 
     def did_mount(self):
         self.page.title = "First Page"
-        print(f'[first_page] {self.pc.Global}')
-        self.pc.Global["from_first"] = "Sent from First Page"
-        self.page.add(ft.Text(f"{datetime.now()}"))
-        self.page.add(
-            ft.TextButton(
-                content=ft.Text("Go to Second Page"),
-                on_click=lambda _: self.page.go("/second"),
-            )
-        )
-        self.page.update()
+        def set_role(e):
+            role = role_field.value.strip().lower()
+            if role in ["user", "admin"]:
+                self.pc.Global["role"] = role
+                self.page.appbar = self.pc.menu_class(self.pc, role).get_appbar()
+                self.pc.load_page("second")
+            else:
+                self.page.controls.clear()
+                self.page.controls.append(ft.Text("❌ Invalid role. Please enter 'user' or 'admin'."))
+                self.page.update()
 
+        role_field = ft.TextField(label="Enter role (user/admin)")
+        self.page.controls.clear()
+        self.page.controls.append(role_field)
+        self.page.controls.append(ft.ElevatedButton(content=ft.Text("Submit"), on_click=set_role))
+        self.page.update()

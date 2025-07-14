@@ -1,4 +1,5 @@
-from flet import Page, run
+import flet as ft
+from flet import Page, run, AppView
 from controllers.page_controller import PageController
 
 def main(page: Page):
@@ -11,4 +12,4 @@ def main(page: Page):
     page.on_route_change = route_change
     page.go(page.route)
 
-run(main)
+run(main, view=ft.AppView.WEB_BROWSER)#, web_renderer=ft.WebRenderer.SKWASM)
