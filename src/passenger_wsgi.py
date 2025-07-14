@@ -6,17 +6,17 @@ import time
 # IMPORTANT: Ensure these paths are ABSOLUTELY correct for your cPanel setup.
 
 # Path to your virtual environment's python executable
-# Based on your provided path: /home/czpqmrra/virtualenv/flet_backend/src/3.12/bin/activate
-VENV_PYTHON = "/home/czpqmrra/virtualenv/flet_backend/src/3.12/bin/python"
+# Based on your provided path: /home/czpqmrra/virtualenv/stock-trade/src/3.12/bin/activate
+VENV_PYTHON = "/home/czpqmrra/virtualenv/stock-trade/src/3.12/bin/python"
 
 # Path to your Flet main application file (main.py)
-FLET_APP_PATH = "/home/czpqmrra/flet_backend/src/main.py"
+FLET_APP_PATH = "/home/czpqmrra/stock-trade/src/main.py"
 
 # The port your Flet app will try to run on internally
 FLET_PORT = 8550
 
 # Log file for your Flet app's output
-LOG_FILE = "/home/czpqmrra/flet_backend/flet_app.log"
+LOG_FILE = "/home/czpqmrra/stock-trade/flet_app.log"
 
 def application(environ, start_response):
     """
