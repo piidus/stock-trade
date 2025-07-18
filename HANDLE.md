@@ -16,3 +16,8 @@ pip install git+https://github.com/flet-dev/flet.git#subdirectory=sdk/python
 ```bash
 pip install git+https://github.com/flet-dev/flet.git#subdirectory=sdk/python
 ```
+
+# Run on same port 
+```bash
+flet run --web --port 5000 main.py
+```

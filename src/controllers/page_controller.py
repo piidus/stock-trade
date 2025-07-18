@@ -1,18 +1,20 @@
 import flet as ft
-from views.first_page import FirstPage
-from views.second_page import SecondPage
+# from views.auth_page import FirstPage
+from views.chart_page import ChartPage
 from views.third_page import ThirdPage
 from controllers.menu import MenuBar
+from views import AuthPage
 
 class PageController:
     def __init__(self, page: ft.Page):
         self.page = page
+        # self.page_media = page.media
         self.Global = {}
         self.menu_class = MenuBar
 
         self.pages = {
-            "first": FirstPage(self.page, self),
-            "second": SecondPage(self.page, self),
+            "auth": AuthPage(self.page, self),
+            "chart": ChartPage(self.page, self),
             "third": ThirdPage(self.page, self),
         }
 
