@@ -20,4 +20,6 @@ def main(page: Page):
     page.on_route_change = route_change
     page.go(page.route)
 
-app(target=main, view=ft.AppView.WEB_BROWSER, port=5000)#(main )#, view=ft.AppView.WEB_BROWSER)#, web_renderer=ft.WebRenderer.SKWASM)
+# app(target=main, view=ft.AppView.WEB_BROWSER, port=5000)#(main )#, view=ft.AppView.WEB_BROWSER)#, web_renderer=ft.WebRenderer.SKWASM)
+# for mobile: 
+app(target=main, view=ft.AppView.FLET_APP)
